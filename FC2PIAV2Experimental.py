@@ -30,37 +30,6 @@ def percentage(numerator, denominator):
     percent = round(percent, 6)
     return percent
 
-from functools import lru_cache
-
-@lru_cache(maxsize=None)
-def isprime(n: int, repititions: int = 5):
-    for _ in range(repititions):
-        x = random.randint(2, n - 2)
-        if math.gcd(n, x) != 1 or x**(n - 1) % n != 1:
-            return False
-    return True
-
-def generatePrimes(n):
-  primes = []
-  is_prime = [False, False] + [True] * (n-1)
-  for p in range(2, n + 1):
-    if is_prime[p]:
-      primes.append(p)
-      # here's where we sieve multiples of p
-      for i in range(p, n + 1, p):
-        is_prime[i] = False
-  return primes
-
-def primecheck(number):
-    if number > 1:
-        for i in range(2, number//2):
-            if (number % i) == 0:
-                return False
-        else:
-            return True
-    else:
-        return True
-
 def miller_rabin(n, k=10):
 	if n == 2:
 		return True
@@ -104,15 +73,6 @@ def is_prime(n):
             return False
     return True
 
-def Prime(n):
-    if n & 1 == 0:
-        return False
-    d= 3
-    while d * d <= n:
-        if n % d == 0:
-            return False
-        d= d + 2
-    return True
 
 for integer in range(1,N+1):
 
@@ -121,7 +81,11 @@ for integer in range(1,N+1):
     if i % 100 == 0:
         print(percentage(integer,N))
 
-    result = int(((3+(modifier*integer))**2)-2)
+'''
+YOUR EQUATION IS WHAT "result" IS EQUAL TO
+'''
+
+    result = (YOUR EQUATION HERE)
     if miller_rabin(result) == True:
         amntofprimes = amntofprimes + 1
     else:
